@@ -9,8 +9,12 @@ st.set_page_config(page_title="Heart Disease Prediction", page_icon="❤️")
 st.title("❤️ Heart Disease Prediction")
 st.write("Enter patient details to get an ML prediction and AI explanation.")
 
-# Load trained model
-data = joblib.load("models/heart_model.pkl")
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "models", "heart_model.pkl")
+
+data = joblib.load(MODEL_PATH)
 
 model = data["model"]
 scaler = data["scaler"]
